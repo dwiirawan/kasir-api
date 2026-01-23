@@ -297,6 +297,10 @@ func main() {
 		})
 	})
 
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, "index.html")
+	})
+
 	fmt.Println("Server berjalan di localhost:8080")
 
 	err := http.ListenAndServe(":8080", nil)
